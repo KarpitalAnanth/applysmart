@@ -9,6 +9,7 @@ type RawJob struct {
 	Location    string
 	Description string
 	SourceURL   string
+	ContentHash string
 }
 
 // JobProvider fetches job postings matching a search query and location.

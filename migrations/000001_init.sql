@@ -3,9 +3,9 @@ CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
 CREATE TABLE IF NOT EXISTS users (
     id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    email           VARCHAR(255) UNIQUE,
-    target_title    VARCHAR(150) NOT NULL,
-    target_location VARCHAR(100) NOT NULL,
+    email           TEXT UNIQUE,
+    target_title    TEXT NOT NULL,
+    target_location TEXT NOT NULL,
     resume_text     TEXT NOT NULL,
     created_at      TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
@@ -13,9 +13,9 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS hits (
     id           UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     content_hash VARCHAR(64) UNIQUE NOT NULL,
-    title        VARCHAR(255) NOT NULL,
-    company      VARCHAR(255) NOT NULL,
-    location     VARCHAR(150) NOT NULL,
+    title        TEXT NOT NULL,
+    company      TEXT NOT NULL,
+    location     TEXT NOT NULL,
     description  TEXT NOT NULL,
     source_url   TEXT NOT NULL,
     created_at   TIMESTAMPTZ NOT NULL DEFAULT NOW()
